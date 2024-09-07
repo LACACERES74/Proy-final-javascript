@@ -1,0 +1,218 @@
+/* Estilo general para el body */
+body {
+    background-image: url(../imagenes/fondo.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilo del encabezado */
+h1 {
+    font-size: 2.5em;
+    color: #250262;
+    text-align: center;
+    margin: 40px  40px ;
+}
+
+/* Contenedor principal del menú y el carrito */
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Estilo del menú de comidas */
+#Main {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Estilo de los elementos del menú */
+#Main>div {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#Main>div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#Main img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+#Main h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #333;
+}
+
+#Main p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.btnAgregar {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btnAgregar:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para el contenedor del carrito y mensajes */
+.carrito-mensaje-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+/* Estilo para el carrito */
+#carrito {
+    display: none;
+    /* Ocultar el carrito por defecto */
+    position: fixed;
+    bottom: 80px;
+    /* Ajusta según el tamaño del ícono */
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #cf91eb;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    /* Asegura que esté por encima de otros elementos */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Mostrar el carrito cuando tenga la clase 'mostrar' */
+#carrito.mostrar {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilo de los elementos del carrito */
+#carrito h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #333;
+}
+
+#carrito p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Estilo para el contenedor de mensajes */
+#mensaje {
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    transition: opacity 1.5s ease-out;
+}
+
+/* Estilo para mensajes de éxito */
+.mensaje.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Estilo para mensajes de error */
+.mensaje.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Clase para desvanecer el mensaje */
+.mensaje.fade-out {
+    opacity: 0;
+}
+
+/* Estilo del icono del carrito */
+.carrito-icono {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carrito-icono:hover {
+
+    background-color: #f1f1f1;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.carrito-icono i {
+    font-size: 24px;
+}
+
+.carrito-cantidad {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+/* Estilo del footer */
+footer {
+    background-color: #343a40; /* Color de fondo oscuro para el pie de página */
+    color: #fff; /* Color del texto blanco */
+    text-align: center; /* Centra el texto y los elementos en el pie de página */
+    padding: 20px; /* Espacio interno alrededor del contenido */
+    position: relative; /* Posicionamiento relativo para control total del pie de página */
+    bottom: 0; /* Asegura que el pie de página esté al final de la página */
+    width: 100%; /* Asegura que el pie de página cubra todo el ancho de la página */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Sombra superior para darle un efecto de separación */
+}
+
+footer p {
+    font-size: 1.2em; /* Tamaño de fuente para el párrafo */
+    margin: 10px 0; /* Espacio alrededor del párrafo */
+}
+
+footer img {
+    max-width: 100px; /* Tamaño máximo de la imagen (ajustable según el diseño) */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-top: 10px; /* Espacio arriba de la imagen */
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+}
