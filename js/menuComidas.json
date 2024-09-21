@@ -1,0 +1,35 @@
+[
+    {
+      "id": 1,
+      "nombre": "Hamburguesa",
+      "precio": 1000,
+      "img": "imagenes/hamburguesas.png"
+    },
+    {
+      "id": 2,
+      "nombre": "Pizza",
+      "precio": 1200,
+      "img": "imagenes/pizza.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "Ensalada",
+      "precio": 800,
+      "img": "imagenes/ensalada.jpg"
+    },
+    {
+      "id": 4,
+      "nombre": "Sushi",
+      "precio": 1200,
+      "img": "imagenes/sushi.jpg"
+    },
+    {
+      "id": 5,
+      "nombre": "Tacos",
+      "precio": 1100,
+      "img": "imagenes/tacos.jpg"
+    }
+  ]
+  
+
+

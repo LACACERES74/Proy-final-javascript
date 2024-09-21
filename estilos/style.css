@@ -181,6 +181,10 @@ h1 {
 .carrito-icono i {
     font-size: 24px;
 }
+#carritoIcono img {
+    width: 50px; /* Ajusta el tamaño de la imagen */
+    height: 50px;
+}
 
 .carrito-cantidad {
     position: absolute;

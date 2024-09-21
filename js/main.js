@@ -4,15 +4,7 @@ const carritoDOM = document.getElementById("carrito");
 const mensajeDOM = document.getElementById("mensaje");
 const carritoIcono = document.getElementById("carritoIcono");
 const carritoCantidad = document.getElementById("carritoCantidad");
-
-// Definición del menú de comidas
-const menuComidas = [
-    { id: 1, nombre: "Hamburguesa", precio: 1000, img: "imagenes/hamburguesas.png" },
-    { id: 2, nombre: "Pizza", precio: 1200, img: "imagenes/pizza.jpg" },
-    { id: 3, nombre: "Ensalada", precio: 800, img: "imagenes/ensalada.jpg" },
-    { id: 4, nombre: "Sushi", precio: 1200, img: "imagenes/sushi.jpg" },
-    { id: 5, nombre: "Tacos", precio: 1100, img: "imagenes/tacos.jpg" },
-];
+let menuComidas = [];
 
 // Inicializar carrito
 const carrito = [];
@@ -33,7 +25,7 @@ const actualizarCantidadCarrito = () => {
 };
 
 // Función para mostrar el menú de comidas
-const mostrarMenu = () => {
+const mostrarMenu = (menuComidas) => {
     main.innerHTML = "";
     menuComidas.forEach(el => {
         const ejemploCard = `
@@ -46,31 +38,30 @@ const mostrarMenu = () => {
         `;
         main.innerHTML += ejemploCard;
     });
-    agregarEventoBotones(); // Mueve esta llamada aquí para que se actualice después de renderizar el menú
+    agregarEventoBotones();
 };
-document.addEventListener('DOMContentLoaded', function() {
-    const carritoIcono = document.getElementById('carritoIcono');
-    const carritoLateral = document.getElementById('carritoLateral');
-    const cerrarCarrito = document.getElementById('cerrarCarrito');
 
-    carritoIcono.addEventListener('click', function() {
-        carritoLateral.classList.toggle('mostrar');
-    });
-
-    cerrarCarrito.addEventListener('click', function() {
-        carritoLateral.classList.remove('mostrar');
-    });
-});
+// Función para obtener el menú de comidas desde el JSON
+const cargarMenuDesdeJSON = async () => {
+    try {
+        const response = await fetch('js/menuComidas.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        menuComidas = await response.json();
+        mostrarMenu(menuComidas);
+    } catch (error) {
+        console.error('Hubo un problema con la operación fetch:', error);
+    }
+};
 
 // Función para mostrar el carrito de compras
 const mostrarCarrito = () => {
     carritoDOM.innerHTML = "";
-    
     if (carrito.length === 0) {
         carritoDOM.innerHTML = "<p>El carrito está vacío</p>";
         return;
     }
-    
     const carritoAgrupado = carrito.reduce((acc, item) => {
         if (!acc[item.id]) {
             acc[item.id] = { ...item, cantidad: 1 };
@@ -107,7 +98,7 @@ const agregarEventoBotones = () => {
                 carrito.push(comida);
                 localStorage.setItem('carrito', JSON.stringify(carrito));
                 mostrarCarrito();
-                actualizarCantidadCarrito(); // Actualiza la cantidad del carrito
+                actualizarCantidadCarrito();
             } else {
                 mostrarMensaje(`No se encontró el item con id ${id}`, "error");
             }
@@ -161,12 +152,8 @@ const confirmarCompra = () => {
     carrito.length = 0;
     localStorage.removeItem('carrito');
     mostrarCarrito();
-    actualizarCantidadCarrito(); // Actualiza la cantidad del carrito
-
-    // Mostrar el GIF después de confirmar la compra
+    actualizarCantidadCarrito();
     mostrarGif();
-
-    
 };
 
 // Función para cancelar la compra
@@ -179,13 +166,12 @@ const cancelarCompra = () => {
     carrito.length = 0;
     localStorage.removeItem('carrito');
     mostrarCarrito();
-    actualizarCantidadCarrito(); // Actualiza la cantidad del carrito
+    actualizarCantidadCarrito();
     mostrarGifCancelacion();
 
-    // Recargar la página después de mostrar el GIF
     setTimeout(() => {
         location.reload();
-    }, 2000); // El tiempo debe coincidir con la duración del GIF de cancelación
+    }, 2000);
 };
 
 // Función para calcular el total del carrito
@@ -236,12 +222,11 @@ const toggleCarrito = () => {
 carritoIcono.addEventListener("click", toggleCarrito);
 
 // Renderizado inicial
-const renderizadoInicial = () => {
+const renderizadoInicial = async () => {
     cargarCarritoDesdeLocalStorage();
-    mostrarMenu();
+    await cargarMenuDesdeJSON();
     mostrarCarrito();
-    actualizarCantidadCarrito(); // Asegúrate de que la cantidad del carrito esté actualizada al cargar
+    actualizarCantidadCarrito();
 };
 
 document.addEventListener('DOMContentLoaded', renderizadoInicial);
-
