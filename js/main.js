@@ -70,20 +70,20 @@ const mostrarCarrito = () => {
         }
         return acc;
     }, {});
-    
+
     let total = 0;
-    
+
     for (const item of Object.values(carritoAgrupado)) {
         carritoDOM.innerHTML += `<h3>${item.nombre} - $${item.precio} x ${item.cantidad} = $${item.precio * item.cantidad}</h3>`;
         total += item.precio * item.cantidad;
     }
-    
+
     carritoDOM.innerHTML += `<h3>Total: $${total}</h3>`;
-    
+
     carritoDOM.innerHTML += `
         <button type="button" id="btnProcederCompra">Proceder a Compra</button>
     `;
-    
+
     document.getElementById("btnProcederCompra").addEventListener("click", mostrarDatosCliente);
 };
 
@@ -112,7 +112,7 @@ const mostrarDatosCliente = () => {
         mostrarMensaje("El carrito está vacío. Agregue productos antes de proceder.", "error");
         return;
     }
-    
+
     carritoDOM.innerHTML = `
         <h3>Datos del Cliente</h3>
         <form id="formCliente">
@@ -126,7 +126,7 @@ const mostrarDatosCliente = () => {
             <button type="button" id="btnCancelar">Cancelar Compra</button>
         </form>
     `;
-    
+
     document.getElementById("btnConfirmar").addEventListener("click", confirmarCompra);
     document.getElementById("btnCancelar").addEventListener("click", cancelarCompra);
 };
@@ -146,7 +146,7 @@ const confirmarCompra = () => {
         mostrarMensaje("Por favor, complete todos los campos.", "error");
         return;
     }
-    
+
     mostrarMensaje(`Compra confirmada. Total a pagar: $${calcularTotal()}<br>Nombre: ${nombre}<br>Teléfono: ${telefono}<br>Dirección: ${direccion}`, "success");
 
     carrito.length = 0;
@@ -162,7 +162,7 @@ const cancelarCompra = () => {
         mostrarMensaje("No hay productos en el carrito para cancelar.", "error");
         return;
     }
-    
+
     carrito.length = 0;
     localStorage.removeItem('carrito');
     mostrarCarrito();
@@ -184,7 +184,7 @@ const calcularTotal = () => {
         }
         return acc;
     }, {});
-    
+
     return Object.values(carritoAgrupado).reduce((total, item) => total + item.precio * item.cantidad, 0);
 };
 

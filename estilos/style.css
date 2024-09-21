@@ -14,7 +14,7 @@ h1 {
     font-size: 2.5em;
     color: #250262;
     text-align: center;
-    margin: 40px  40px ;
+    margin: 40px 40px;
 }
 
 /* Contenedor principal del menú y el carrito */
@@ -86,7 +86,7 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    
+
 }
 
 /* Estilo para el carrito */
@@ -181,8 +181,10 @@ h1 {
 .carrito-icono i {
     font-size: 24px;
 }
+
 #carritoIcono img {
-    width: 50px; /* Ajusta el tamaño de la imagen */
+    width: 50px;
+    /* Ajusta el tamaño de la imagen */
     height: 50px;
 }
 
@@ -197,26 +199,41 @@ h1 {
     font-size: 12px;
     font-weight: bold;
 }
+
 /* Estilo del footer */
 footer {
-    background-color: #343a40; /* Color de fondo oscuro para el pie de página */
-    color: #fff; /* Color del texto blanco */
-    text-align: center; /* Centra el texto y los elementos en el pie de página */
-    padding: 20px; /* Espacio interno alrededor del contenido */
-    position: relative; /* Posicionamiento relativo para control total del pie de página */
-    bottom: 0; /* Asegura que el pie de página esté al final de la página */
-    width: 100%; /* Asegura que el pie de página cubra todo el ancho de la página */
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Sombra superior para darle un efecto de separación */
+    background-color: #343a40;
+    /* Color de fondo oscuro para el pie de página */
+    color: #fff;
+    /* Color del texto blanco */
+    text-align: center;
+    /* Centra el texto y los elementos en el pie de página */
+    padding: 20px;
+    /* Espacio interno alrededor del contenido */
+    position: relative;
+    /* Posicionamiento relativo para control total del pie de página */
+    bottom: 0;
+    /* Asegura que el pie de página esté al final de la página */
+    width: 100%;
+    /* Asegura que el pie de página cubra todo el ancho de la página */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra superior para darle un efecto de separación */
 }
 
 footer p {
-    font-size: 1.2em; /* Tamaño de fuente para el párrafo */
-    margin: 10px 0; /* Espacio alrededor del párrafo */
+    font-size: 1.2em;
+    /* Tamaño de fuente para el párrafo */
+    margin: 10px 0;
+    /* Espacio alrededor del párrafo */
 }
 
 footer img {
-    max-width: 100px; /* Tamaño máximo de la imagen (ajustable según el diseño) */
-    height: auto; /* Mantiene la proporción de la imagen */
-    margin-top: 10px; /* Espacio arriba de la imagen */
-    border-radius: 8px; /* Bordes redondeados para la imagen */
+    max-width: 100px;
+    /* Tamaño máximo de la imagen (ajustable según el diseño) */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
+    margin-top: 10px;
+    /* Espacio arriba de la imagen */
+    border-radius: 8px;
+    /* Bordes redondeados para la imagen */
 }
